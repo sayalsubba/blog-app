@@ -3,16 +3,25 @@ import Main from "./components/Main/Main"
 import Create from "./components/Create/Create"
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-const [title, setTitle] = useState ([])
-const [author, setAuthor] = useState([]);
-const[description, setDescription] = useState ([]);
 function App() {
+  const [title, setTitle] = useState("");
+const [author, setAuthor] = useState("");
+const [description, setDescription] = useState("");
+const [post, setPost] = useState([]);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Main />} >
-            <Route path='create' element={<Create />} />
+            <Route path='create' element={<Create title={title}
+            author={author}
+            description={description}
+            setTitle={setTitle}
+            setAuthor={setAuthor}
+            setDescription={setDescription}
+            post={post}
+            setPost={setPost}
+            />} />
           </Route>
         </Routes>
       </BrowserRouter>

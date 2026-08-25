@@ -4,11 +4,32 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { motion, scale } from "motion/react";
 import { Button } from '@mui/material';
-export default function Create() {
-
-    const handleSave = ()=>{
-    
-}
+import { h1 } from 'motion/react-client';
+export default function Create({
+    title,
+    author,
+    description,
+    setTitle,
+    setAuthor,
+    setDescription,
+    post,
+    setPost,
+}) 
+{
+    const handleSave = () => {
+        setAuthor("");
+        setTitle("");
+        setDescription("");
+        const newPost = {
+            title: title,
+            author: author,
+            description: description,
+        }
+        setPost((prev) => {
+            return [...prev, newPost]
+        })
+    }
+    console.log(post)
     return (
         <>
             <Box
@@ -23,25 +44,31 @@ export default function Create() {
 
                         <label htmlFor="">Title:  </label>
                         <br />
+                        <input type="text" value={title} onChange={(e) => {
 
-                        <input type="text" />
+                            setTitle(e.target.value)
+                        }} />
                         <br />
                         <br />
                         <label htmlFor="">Author: </label>
                         <br />
-
-                        <input type="text" />
+                        <input type="text" value={author} onChange={(e) => {
+                            setAuthor(e.target.value)
+                        }} />
                         <br />
                         <br />
                         <label htmlFor="">Description:</label>
                         <br />
                         <br />
                         <TextField
+                            value={description}
+                            onChange={(e) => {
+                                setDescription(e.target.value)
+                            }}
                             id="outlined-multiline-static"
                             label="Description"
                             multiline
                             rows={4}
-
                         />
                         <br />
                         <br />
@@ -49,10 +76,11 @@ export default function Create() {
                     <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-onClick={()=>{
-    handleSave()
-}}
+                        onClick={() => {
+                            handleSave()
+                        }}
                     >Save</motion.button>
+
                 </div>
             </div >
         </>
