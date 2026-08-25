@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import Main from "./components/Main/Main"
-import { BrowserRouter } from 'react-router-dom'
+import Create from "./components/Create/Create"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Main/>
+        <Routes>
+          <Route path='/' element={<Main />} >
+            <Route path='create' element={<Create />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </>
   )

@@ -1,0 +1,28 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+}
+.mainPrt{
+    height: auto;
+    width: 50%;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+.inputField{
+    margin: 10px;
+}
+#description{
+    padding: 10px;
+}
+.inputField input{
+    font-weight: 20px;
+    font-size: large;
+}
+.mainPrt button{
+    background-color: blue;
+    color: white;
+}
