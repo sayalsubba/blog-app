@@ -2,8 +2,13 @@ import React from 'react'
 import Css from "./Create.module.css"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { motion, scale } from "motion/react";
 import { Button } from '@mui/material';
 export default function Create() {
+
+    const handleSave = ()=>{
+    
+}
     return (
         <>
             <Box
@@ -22,7 +27,7 @@ export default function Create() {
                         <input type="text" />
                         <br />
                         <br />
-                        <label htmlFor="">Content: </label>
+                        <label htmlFor="">Author: </label>
                         <br />
 
                         <input type="text" />
@@ -41,9 +46,15 @@ export default function Create() {
                         <br />
                         <br />
                     </div>
-                    <Button>Save </Button>
+                    <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+onClick={()=>{
+    handleSave()
+}}
+                    >Save</motion.button>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

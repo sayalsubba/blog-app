@@ -3,7 +3,9 @@ import Main from "./components/Main/Main"
 import Create from "./components/Create/Create"
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-
+const [title, setTitle] = useState ([])
+const [author, setAuthor] = useState([]);
+const[description, setDescription] = useState ([]);
 function App() {
   return (
     <>

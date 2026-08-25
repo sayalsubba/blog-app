@@ -1,28 +1,41 @@
-.main{
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
     width: 100%;
 }
-.mainPrt{
+
+.mainPrt {
     height: auto;
     width: 50%;
+
     margin-top: 20px;
     background-color: white;
     border-radius: 10px;
 }
-.inputField{
+
+.inputField {
     margin: 10px;
 }
-#description{
+
+#description {
     padding: 10px;
 }
-.inputField input{
+
+.inputField input {
     font-weight: 20px;
     font-size: large;
 }
-.mainPrt button{
+
+.mainPrt button {
+
     background-color: blue;
     color: white;
+    padding: 10px;
+    border-style: none;
+border-radius: 10px;
+cursor: pointer;
+margin-left: 45%;
+margin-bottom: 10px;
 }
