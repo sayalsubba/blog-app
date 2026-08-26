@@ -14,13 +14,16 @@ export default function Create({
     setDescription,
     post,
     setPost,
-}) 
-{
+}) {
     const handleSave = () => {
         setAuthor("");
         setTitle("");
         setDescription("");
-        const newPost = {
+        if (!title || !author || !description) {
+            alert("please enter something")
+        }
+        else {
+  const newPost = {
             title: title,
             author: author,
             description: description,
@@ -28,6 +31,8 @@ export default function Create({
         setPost((prev) => {
             return [...prev, newPost]
         })
+        }
+      
     }
     console.log(post)
     return (
