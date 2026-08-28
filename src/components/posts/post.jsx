@@ -1,18 +1,22 @@
 import React from 'react'
 import Css from "./post.module.css"
-import { h1 } from 'motion/react-client'
 import { motion } from 'motion/react'
 export default function post({
     post,
     setPost
-}) {
+}){
+    const handleEdit = ()=>{
+
+    }
     return (
+        
         <>
             <div className={Css["main"]}>
 
                 {post.map((item) => (
                     <div className={Css["mainPrt"]}>
                         <div className={Css['mainPosts']}>
+                            <p>Id: {item.id}</p>
                             <h1>Title: {item.title}</h1>
                             <p>Author: {item.author}</p>
                             <p>Description:{item.description}</p>
@@ -20,8 +24,11 @@ export default function post({
                         </div>
                         <div className={Css["btn"]}>
                             <motion.button
-                        whileHover={{scale:1.1}}
-                        whileTap={{scale:0.9}}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => {
+                                    handleEdit()
+                                }}
                             >Edit</motion.button>
                         </div>
                     </div>

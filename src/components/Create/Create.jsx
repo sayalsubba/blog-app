@@ -23,16 +23,17 @@ export default function Create({
             alert("please enter something")
         }
         else {
-  const newPost = {
-            title: title,
-            author: author,
-            description: description,
+            const newPost = {
+                id: Date.now(),
+                title: title,
+                author: author,
+                description: description,
+            }
+            setPost((prev) => {
+                return [...prev, newPost]
+            })
         }
-        setPost((prev) => {
-            return [...prev, newPost]
-        })
-        }
-      
+
     }
     console.log(post)
     return (
