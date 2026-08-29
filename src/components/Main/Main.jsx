@@ -16,11 +16,9 @@ export default function Main(
                     <Link className={Css.link} to="/create">Create Post</Link>
                 </div>
                 <div className={Css["showPost"]}>
-                
                     <Outlet />
                 </div>
             </div>
-
         </>
     )
 }

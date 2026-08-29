@@ -3,11 +3,15 @@ import Css from "./post.module.css"
 import { motion } from 'motion/react'
 export default function post({
     post,
-    setPost
+    setPost,
+    edit,
+    setEdit
 }){
-    const handleEdit = ()=>{
+    const handleEdit = (item)=>{
+setEdit(item.id)
 
     }
+    console.log(edit);
     return (
         
         <>
@@ -27,7 +31,7 @@ export default function post({
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => {
-                                    handleEdit()
+                                    handleEdit(item)
                                 }}
                             >Edit</motion.button>
                         </div>

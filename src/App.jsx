@@ -9,6 +9,7 @@ function App() {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [post, setPost] = useState([]);
+  const [edit, setEdit] = useState(null);
   return (
     <>
       <BrowserRouter>
@@ -29,6 +30,8 @@ function App() {
             <Route path='/' element={<Post 
              post={post}
             setPost={setPost}
+            edit={edit}
+            setEdit={setEdit}
             />} />
           </Route>
         </Routes>
