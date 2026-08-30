@@ -18,7 +18,8 @@ function App() {
             post={post}
             setPost={setPost}
           />} >
-            <Route path='create' element={<Create title={title}
+            <Route path='create' element={<Create 
+            title={title}
               author={author}
               description={description}
               setTitle={setTitle}
@@ -28,6 +29,12 @@ function App() {
               setPost={setPost}
             />} />
             <Route path='/' element={<Post 
+             title={title}
+              author={author}
+              description={description}
+              setTitle={setTitle}
+              setAuthor={setAuthor}
+              setDescription={setDescription}
              post={post}
             setPost={setPost}
             edit={edit}

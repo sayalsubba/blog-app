@@ -2,18 +2,26 @@ import React from 'react'
 import Css from "./post.module.css"
 import { motion } from 'motion/react'
 export default function post({
+    title,
+    author,
+    description,
+    setTitle,
+    setAuthor,
+    setDescription,
     post,
     setPost,
     edit,
     setEdit
-}){
-    const handleEdit = (item)=>{
-setEdit(item.id)
-
+}) {
+    const handleEdit = (item) => {
+        setEdit(item.id)
+setTitle(item.title)
+setAuthor(item.author)
+setDescription(item.description)
     }
     console.log(edit);
     return (
-        
+
         <>
             <div className={Css["main"]}>
 
