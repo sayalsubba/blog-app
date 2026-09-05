@@ -1,6 +1,8 @@
 import React from 'react'
 import Css from "./post.module.css"
 import { motion } from 'motion/react'
+import { Outlet } from 'react-router-dom'
+import ShowEdit from "../ShowEdit/showEdit"
 export default function post({
     title,
     author,
@@ -11,13 +13,20 @@ export default function post({
     post,
     setPost,
     edit,
-    setEdit
+    setEdit,
+    showEdit,
+    setShowEdit,
+    selectedPost,
+    setSelectedPost
 }) {
-    const handleEdit = (item) => {
-        setEdit(item.id)
-setTitle(item.title)
-setAuthor(item.author)
-setDescription(item.description)
+    const handleEdit = (id) => {
+        const postItem = post.find((post) => post.id === id)
+        setTitle(postItem.title);
+        setAuthor(postItem.author);
+        setDescription(postItem.description);
+        setEdit(id);
+        setShowEdit(true);
+
     }
     console.log(edit);
     return (
@@ -26,7 +35,7 @@ setDescription(item.description)
             <div className={Css["main"]}>
 
                 {post.map((item) => (
-                    <div className={Css["mainPrt"]}>
+                    <div key={item} className={Css["mainPrt"]}>
                         <div className={Css['mainPosts']}>
                             <p>Id: {item.id}</p>
                             <h1>Title: {item.title}</h1>
@@ -39,15 +48,24 @@ setDescription(item.description)
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => {
-                                    handleEdit(item)
+                                    handleEdit(item.id)
                                 }}
                             >Edit</motion.button>
                         </div>
                     </div>
 
                 ))}
+                {showEdit && (
+                    <ShowEdit
+                        onClose={() => (
+                            setShowEdit(false)
+                        )}
+                    />
 
+                )
+                }
             </div>
+
         </>
     )
 }

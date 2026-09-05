@@ -10,6 +10,10 @@ function App() {
   const [description, setDescription] = useState("");
   const [post, setPost] = useState([]);
   const [edit, setEdit] = useState(null);
+  const [showEdit, setShowEdit] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(false);
+
+
   return (
     <>
       <BrowserRouter>
@@ -18,8 +22,8 @@ function App() {
             post={post}
             setPost={setPost}
           />} >
-            <Route path='create' element={<Create 
-            title={title}
+            <Route path='create' element={<Create
+              title={title}
               author={author}
               description={description}
               setTitle={setTitle}
@@ -28,17 +32,21 @@ function App() {
               post={post}
               setPost={setPost}
             />} />
-            <Route path='/' element={<Post 
-             title={title}
+            <Route path='/' element={<Post
+              title={title}
               author={author}
               description={description}
               setTitle={setTitle}
               setAuthor={setAuthor}
               setDescription={setDescription}
-             post={post}
-            setPost={setPost}
-            edit={edit}
-            setEdit={setEdit}
+              post={post}
+              setPost={setPost}
+              edit={edit}
+              setEdit={setEdit}
+              showEdit={showEdit}
+              setShowEdit={setShowEdit}
+              selectedPost={selectedPost}
+              setSelectedPost ={setSelectedPost}
             />} />
           </Route>
         </Routes>
