@@ -1,0 +1,17 @@
+.main{
+display: flex;
+height: auto;
+padding: 10px;
+}
+.mainPrt{
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+
+}
+.mainPrt input{
+    margin: 5px;
+}
+.mainPrt button{
+    margin: 10px;
+}

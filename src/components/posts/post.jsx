@@ -17,25 +17,23 @@ export default function post({
     showEdit,
     setShowEdit,
     selectedPost,
-    setSelectedPost
+    setSelectedPost,
 }) {
     const handleEdit = (id) => {
         const postItem = post.find((post) => post.id === id)
-        setTitle(postItem.title);
-        setAuthor(postItem.author);
-        setDescription(postItem.description);
         setEdit(id);
+        setSelectedPost(postItem);
         setShowEdit(true);
-
     }
-    console.log(edit);
+    console.log(selectedPost)
+
     return (
 
         <>
             <div className={Css["main"]}>
 
                 {post.map((item) => (
-                    <div key={item} className={Css["mainPrt"]}>
+                    <div key={item.id} className={Css["mainPrt"]}>
                         <div className={Css['mainPosts']}>
                             <p>Id: {item.id}</p>
                             <h1>Title: {item.title}</h1>
@@ -55,14 +53,23 @@ export default function post({
                     </div>
 
                 ))}
-                {showEdit && (
+                {showEdit &&
                     <ShowEdit
-                        onClose={() => (
-                            setShowEdit(false)
-                        )}
-                    />
+                        selectedPost={selectedPost}
+                        setSelectedPost={setSelectedPost}
+                        onClose={() => setShowEdit(false)}
+                        title={title}
+                        setTitle={setTitle}
+                        author={author}
+                        setAuthor={setAuthor}
+                        description={description}
+                        setDescription={setDescription}
+                        edit={edit}
+                        showEdit={showEdit}
+                        post={post}
+                        setPost={setPost}
 
-                )
+                    />
                 }
             </div>
 

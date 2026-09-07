@@ -31,6 +31,8 @@ function App() {
               setDescription={setDescription}
               post={post}
               setPost={setPost}
+              edit={edit}
+              setEdit={setEdit}
             />} />
             <Route path='/' element={<Post
               title={title}
