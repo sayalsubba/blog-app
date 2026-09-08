@@ -31,9 +31,9 @@ export default function Create({
                 author: author,
                 description: description,
             }
-            setPost((prev) => {
-                return [...prev, newPost]
-            })
+            setPost((prev) =>
+                ([...prev, newPost])
+            )
         }
 
     }
@@ -59,15 +59,15 @@ export default function Create({
                         <br />
                         <br />
                         <label htmlFor="">Author: </label>
-                        <br/>
+                        <br />
                         <input type="text" value={author} onChange={(e) => {
                             setAuthor(e.target.value)
-                        }}/>
-                        <br/>
-                        <br/>
+                        }} />
+                        <br />
+                        <br />
                         <label htmlFor="">Description:</label>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <TextField
                             value={description}
                             onChange={(e) => {

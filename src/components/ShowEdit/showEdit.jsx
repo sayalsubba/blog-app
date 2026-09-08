@@ -20,9 +20,8 @@ export default function showEdit(
     }
 ) {
     const handleSave = () => {
-        if (edit.id === post.id) {
-            alert("hello")
-        }
+        setPost((prev) => prev.map((item) => item.id === selectedPost.id ? selectedPost : item));   //ternary operator
+        onClose();
     }
     return (
         <>
@@ -30,10 +29,10 @@ export default function showEdit(
                 <div className={Css["mainPrt"]}>
                     <div className={Css["inpt"]}>
                         <label htmlFor="">Title:</label>
-                        <input type="text" value={selectedPost.title} onChange={(e) => setSelectedPost(e.target.value)} />
+                        <input type="text" value={selectedPost.title} onChange={(e) => setSelectedPost({ ...selectedPost, title: e.target.value })}/>  {/*Using prevState to save only title */}
                         <br />
                         <label htmlFor="">Author:</label>
-                        <input type="text" value={selectedPost.author} onChange={(e) => setSelectedPost(e.target.value)} />
+                        <input type="text" value={selectedPost.author} onChange={(e) => setSelectedPost({ ...selectedPost, author: e.target.value })} />
                         <br />
                         <label htmlFor="">Description:</label>
                         <br />
@@ -41,7 +40,7 @@ export default function showEdit(
                         <TextField
                             value={selectedPost.description}
                             onChange={(e) => {
-                                setSelectedPost(e.target.value)
+                                setSelectedPost({ ...selectedPost, description: e.target.value })
                             }}
                             id="outlined-multiline-static"
                             label="Description"
